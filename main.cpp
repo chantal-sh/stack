@@ -1,6 +1,7 @@
 #include <iostream>
 
 using namespace std;
+const int ERROR_CODE = -9999;
 class Stack{
 
 private:
@@ -62,7 +63,21 @@ public:
     }
    
   }
+  int pop() {
+    if (top == -1) {
+        std::cout << "Stack is empty, cannot pop" << endl;
+        return ERROR_CODE;
+    }
+    int value = p[top];
+    top--;
+    cout << value << " is popped from stack" << endl;
 
+    if (top < capacity / 4 && capacity > 1) {
+        resizeStack(capacity / 2);
+    }
+
+    return value;
+}
 
 };
 
@@ -76,6 +91,8 @@ int main(){
   int tab [] = {1,6,7,87,8};
   Stack st2(tab, 5);
   st2.print();
-      
+  int a = st2.pop();
+  cout << a << endl;
+  st2.print();
 return 0;
 }
