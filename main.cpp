@@ -21,7 +21,12 @@ public:
     }
   }
   ~Stack(){delete[] p; p = nullptr;}
-  
+  Stack(const Stack& st):capacity(st.capacity), top(st.top){
+    p = new i nt[capacity];
+    for (int i=0;i<top;i++){
+      p[i] = st.p[i];
+    }
+  }
   void print(){
     if (top == -1){
         cout << "Stack empty" << endl;
@@ -46,5 +51,6 @@ int main(){
   int tab [] = {1,6,7,87,8};
   Stack st2(tab, 5);
   st2.print();
+      
 return 0;
 }
