@@ -50,7 +50,7 @@ public:
       p[i] = st.p[i];
     }
   }
-  void print(){
+  const void print(){
     if (top == -1){
         cout << "Stack empty" << endl;
     }
