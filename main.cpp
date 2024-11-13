@@ -2,10 +2,12 @@
 
 using namespace std;
 class Stack{
+
 private:
   int* p ; // allouer de la mémoire pour un élément
   int top; // contient l’indice du dernier élément ajouté à la pile
   int capacity; // capacite du stack
+
  void resizeStack(int new_max){
       int* new_p = new int[new_max];
     for (int i = 0; i <= top; ++i) {
@@ -19,7 +21,7 @@ private:
  
 
 public:
-  Stack(int capacity, int top = -1):capacity(capacity), top(top),p(new int[capacity]){
+  Stack(int capacity=1):capacity(capacity), top(-1),p(new int[capacity]){
     cout << "Objet Stack cree" << endl;
   }
   Stack(int tab[], int n){
@@ -31,6 +33,7 @@ public:
     }
   }
   ~Stack(){delete[] p; p = nullptr;}
+  
   void push(int value){
       if (top >= capacity - 1) {
         resizeStack(capacity * 2);
